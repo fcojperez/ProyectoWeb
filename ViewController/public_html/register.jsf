@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head>
+            <title>Gestor de tareas | Registro</title>
+        </h:head>
+        
+        <h:body>
+        <ui:composition template="/WEB-INF/facelets/plantilla_frontend.jsf">
+                <ui:define name="cabecera">
+                    <ui:include src="/WEB-INF/facelets/cabecera.jsf" />
+                </ui:define>
+
+                <ui:define name="accede">
+                    <p>Ayuda</p>
+                </ui:define>
+            
+            <ui:define name="registra">
+            <h:form>
+                
+                <h1><h:outputText value="Registro de usuario"/></h1>
+                
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Name:" for="name" />
+                    <h:inputText id="name" value="#{registerBean.usuario.nombre}" title="name" required="true" requiredMessage="The Name field is required."/>
+                    
+                    <h:outputLabel value="Surname:" for="surname" />
+                    <h:inputText id="surname" value="#{registerBean.usuario.apellidos}" title="Surname" required="true" requiredMessage="The Surname field is required."/>
+                    
+                    <h:outputLabel value="Email:" for="email" />
+                    <h:inputText id="email" value="#{registerBean.usuario.email}" title="Email" required="true" requiredMessage="The Email field is required."/>
+                    
+                    <h:outputLabel value="User:" for="user" />
+                    <h:inputText id="user" value="#{registerBean.usuario.username}" title="User" required="true" requiredMessage="The User field is required."/>
+                    
+                    <h:outputLabel value="Password:" for="password" />
+                    <h:inputSecret id="password" value="#{registerBean.usuario.password}" title="Password" required="true" requiredMessage="The Password field is required."/>
+                    
+                    <h:outputLabel value="RePassword:" for="repassword" />
+                    <h:inputSecret id="repassword" value="#{registerBean.repassword}" title="RePassword" required="true" requiredMessage="The RePassword field is required."/>
+                    
+                    <h:commandButton value="Registrar" action="#{registerBean.register}" />
+                    <h:button value="Cancelar" outcome="index" />
+                </h:panelGrid>
+            </h:form>
+            </ui:define>
+        
+        <ui:define name="pie">
+            <ui:include src="/WEB-INF/facelets/pie.jsf" />
+        </ui:define>
+        </ui:composition>
+        </h:body>
+    </html>
+</f:view>

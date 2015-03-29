@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head>
+
+
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />		
+ 
+            <title>
+                <ui:insert name="titulo">Titulo</ui:insert>
+            </title>
+            <h:outputStylesheet library="css/" name="frontend.css" />
+            <h:outputStylesheet library="bootstrap-3.3.4-dist/" name="css/bootstrap.css" />
+            <h:outputScript library="jquery/" name="jquery-1.11.2.js" />
+        </h:head>
+        <h:body>
+            <div class="container">
+                <div class="jumbotron" id="cabecera"><ui:insert name="cabecera" >Cabecera</ui:insert> </div>
+            <div class="row">
+                <div id="registrate" class="col-sm-6">
+                    <ui:insert name="registra">Registrate</ui:insert>
+                </div>
+                <div id="accede" class="col-sm-6">
+                    <ui:insert name="accede">Accede</ui:insert>
+                </div>
+            </div>
+            <div id="pie" class="footer">
+                <ui:insert name="pie">Pie</ui:insert>
+            </div>
+            </div>
+        </h:body>
+    </html>
+</f:view>

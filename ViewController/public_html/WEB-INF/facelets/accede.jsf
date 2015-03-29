@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:t="http://myfaces.apache.org/tomahawk">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head></h:head>
+        <h:body>
+                <h:form>
+                <h3>Accede</h3>
+                    <h:panelGrid columns="2" styleClass="frmAccede" columnClasses="frmAccede" rowClasses="frmAccede">
+                        <h:outputLabel value="Usuario:" for="user" />
+                        <h:inputText id="user" styleClass="form-control input-sm chat-input" value="#{loginBean.usuario.username}" title="Usuario" required="true" requiredMessage="El nombre de usuario es obligatorio."/>    
+                        <h:outputLabel value="Contraseña:" for="password" />
+                        <h:inputSecret id="password" styleClass="form-control input-sm chat-input" value="#{loginBean.usuario.password}" title="Contraseña" required="true" requiredMessage="La contraseña es obligatoria."/>
+                        <span class="group-btn"> 
+                            <h:commandButton styleClass="btn btn-primary btn-md" value="Entrar" action="#{loginBean.login}" />
+                        </span>
+                    </h:panelGrid>
+                </h:form>
+        </h:body>
+    </html>
+</f:view>
