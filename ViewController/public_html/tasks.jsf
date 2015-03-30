@@ -1,60 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
     <html xmlns="http://www.w3.org/1999/xhtml">
         <h:head>
             <title>Gestor de tareas | Listado</title>
         </h:head>
         
         <h:body>
-            <h:commandLink action="#{tasksBean.logout}" value="Desconectar" />
-        
-            <h:form>
-                <h1><h:outputText value="Listado de tareas" /></h1>
-                
-                <h:dataTable value="#{tasksBean.tasks}" var="item" id="tasksList" rows="10">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="ID"/>
-                        </f:facet>
-                        <h:outputText value="#{item.id}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Título" />
-                        </f:facet>
-                        <h:outputText value="#{item.titulo}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Descripción" />
-                        </f:facet>
-                        <h:outputText value="#{item.descripcion}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Estado" />
-                        </f:facet>
-                        <h:outputText value="#{item.estado}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Fecha de inicio" />
-                        </f:facet>
-                        <h:outputText value="#{item.fechaInicio}">
-                            <f:convertDateTime pattern="dd/MM/yyyy" />
-                        </h:outputText>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Fecha de fin" />
-                        </f:facet>
-                        <h:outputText value="#{item.fechaFin}">
-                            <f:convertDateTime pattern="dd/MM/yyyy" />
-                        </h:outputText>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
+            <ui:composition template="/WEB-INF/facelets/plantilla_backend.jsf">
+                <ui:define name="panelCentral">
+                    <ui:include src="/WEB-INF/facelets/listadoTareas.jsf" />
+                </ui:define>
+                <ui:define name="pie">
+                    <ui:include src="/WEB-INF/facelets/pie.jsf" />
+                </ui:define>
+            </ui:composition>
         </h:body>
     </html>
 </f:view>
