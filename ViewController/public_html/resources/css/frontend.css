@@ -20,7 +20,9 @@
 }
 
 #pie{
-
+ bottom: 0px;
+ position:fixed;
+ height: 50px;
 }
 
 .row{

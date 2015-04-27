@@ -31,6 +31,10 @@ public class TasksBean {
         return tareaBean.getTareaFindOwn( usuario );
     }
     
+    public int getTasksSize(){
+        return tareaBean.getTareaFindOwn(usuario).size();
+        }
+    
     public String logout() {
         context.getExternalContext().invalidateSession();
         context.addMessage( null, new FacesMessage( FacesMessage.SEVERITY_INFO, "OK", "Ha sido desconectado." ) );
