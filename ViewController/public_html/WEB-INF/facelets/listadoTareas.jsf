@@ -23,59 +23,51 @@
                         <h:dataTable styleClass="table table-condensed table-bordered" value="#{tasksBean.tasks}" var="item" id="tasksList" rows="#{tasksBean.tasksSize}">
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="Fecha de inicio" />
+                                    <h:outputText value="Fecha de inicio"  />
                                 </f:facet>
-                                <div class="dayofmonth">
-                                    <h:outputText value="#{item.fechaInicio}" >
-                                        <f:convertDateTime pattern="dd" />
-                                    </h:outputText>
-                                </div>
-                                <div class="dayofweek">
-                                <h:outputText value="#{item.fechaInicio}">
-                                    <f:convertDateTime pattern="EEEE" />
-                                </h:outputText>
-                                </div>
-                                <div class="shortdate text-muted">
-                                <h:outputText value="#{item.fechaInicio}">
-                                    <f:convertDateTime pattern="MMMM" />
-                                </h:outputText> , 
-                                <h:outputText value="#{item.fechaInicio}">
-                                    <f:convertDateTime pattern="yyyy" />
-                                </h:outputText>
-                                </div>
-
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Fecha de fin" />
-                                </f:facet>
-                                <h:outputText styleClass="agenda-date" value="#{item.fechaFin}">
+                                <h:inputText styleClass="agenda-date" value="#{item.fechaInicio}" size="10" rendered="#{item.editable}" />
+                                <h:outputText styleClass="agenda-date" value="#{item.fechaInicio}" rendered="#{item.editable}">
                                     <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
                                 </h:outputText>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
+                                    <h:outputText value="Fecha de fin" />
+                                </f:facet>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
                                     <h:outputText value="ID"/>
                                 </f:facet>
-                                <h:outputText styleClass="agenda-date" value="#{item.id}" />
+                                <h:inputText styleClass="agenda-date" value="#{item.id}" rendered="#{item.editable}" />
+                                <h:outputText styleClass="agenda-date" value="#{item.id}" rendered="#{item.editable}" />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Título" />
                                 </f:facet>
-                                <h:outputText styleClass="agenda-date" value="#{item.titulo}" />
+                                <h:inputText styleClass="agenda-date" value="#{item.titulo}" rendered="#{item.editable}" />
+                                <h:outputText styleClass="agenda-date" value="#{item.titulo}" rendered="#{item.editable}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Descripción" />
                                 </f:facet>
-                                <h:outputText styleClass="agenda-date" value="#{item.descripcion}" />
+                                <h:inputText styleClass="agenda-date" value="#{item.descripcion}" rendered="#{item.editable}"/>
+                                <h:outputText styleClass="agenda-date" value="#{item.descripcion}" rendered="#{item.editable}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Estado" />
                                 </f:facet>
-                                <h:outputText styleClass="agenda-date" value="#{item.estado}" />
+                                <h:inputText styleClass="agenda-date" value="#{item.estado}" rendered="#{item.editable}" />
+                                <h:outputText styleClass="agenda-date" value="#{item.estado}" rendered="#{item.editable}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                </f:facet>
+                                <h:commandLink value="Edit" action="#{tasksBean.editAction(item)}" rendered="#{not item.editable}" />
+                                <h:commandButton value="Save Changes" action="#{tasksBean.saveAction}" />
                             </h:column>
                         </h:dataTable>
                     </div>
