@@ -25,8 +25,8 @@
                                 <f:facet name="header">
                                     <h:outputText value="Fecha de inicio"  />
                                 </f:facet>
-                                <h:inputText styleClass="agenda-date" value="#{item.fechaInicio}" size="10" rendered="#{item.editable}" />
-                                <h:outputText styleClass="agenda-date" value="#{item.fechaInicio}" rendered="#{item.editable}">
+                               
+                                <h:outputText styleClass="agenda-date" value="#{item.fechaInicio}">
                                     <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
                                 </h:outputText>
                             </h:column>
@@ -34,45 +34,48 @@
                                 <f:facet name="header">
                                     <h:outputText value="Fecha de fin" />
                                 </f:facet>
+                                <h:outputText styleClass="agenda-date" value="#{item.fechaFin}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+                                </h:outputText>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="ID"/>
                                 </f:facet>
-                                <h:inputText styleClass="agenda-date" value="#{item.id}" rendered="#{item.editable}" />
-                                <h:outputText styleClass="agenda-date" value="#{item.id}" rendered="#{item.editable}" />
+                                <h:outputText styleClass="agenda-date" value="#{item.id}"  />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Título" />
                                 </f:facet>
-                                <h:inputText styleClass="agenda-date" value="#{item.titulo}" rendered="#{item.editable}" />
-                                <h:outputText styleClass="agenda-date" value="#{item.titulo}" rendered="#{item.editable}"/>
+                                <h:outputText styleClass="agenda-date" value="#{item.titulo}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Descripción" />
                                 </f:facet>
-                                <h:inputText styleClass="agenda-date" value="#{item.descripcion}" rendered="#{item.editable}"/>
-                                <h:outputText styleClass="agenda-date" value="#{item.descripcion}" rendered="#{item.editable}"/>
+                                
+                                <h:outputText styleClass="agenda-date" value="#{item.descripcion}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Estado" />
                                 </f:facet>
-                                <h:inputText styleClass="agenda-date" value="#{item.estado}" rendered="#{item.editable}" />
-                                <h:outputText styleClass="agenda-date" value="#{item.estado}" rendered="#{item.editable}"/>
+                                
+                                <h:outputText styleClass="agenda-date" value="#{item.estado}" />
                             </h:column>
                             <h:column>
-                                <f:facet name="header">
-                                </f:facet>
-                                <h:commandLink value="Edit" action="#{tasksBean.editAction(item)}" rendered="#{not item.editable}" />
-                                <h:commandButton value="Save Changes" action="#{tasksBean.saveAction}" />
+                                <h:commandButton value="edit" action="#{tasksBean.edit(item)}" />
+                                <h:commandButton value="delete" action="#{tasksBean.delete(item)}" />
                             </h:column>
                         </h:dataTable>
                     </div>
                 </div>
             </h:form>
+            <h:panelGroup rendered="#{tasksBean.edit}">
+                <p>Id: <h:outputText styleClass="agenda-date" value="#{item.id}"  /></p>
+                <p><h:commandButton value="save" action="#{tasksBean.edit(item)}" /></p>
+            </h:panelGroup>
         </h:body>
     </html>
 </f:view>

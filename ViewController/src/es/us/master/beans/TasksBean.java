@@ -21,24 +21,52 @@ public class TasksBean {
     @EJB
     private TareaBeanLocal tareaBean;
     private Usuario usuario;
+    private boolean edit;
+    private Tarea tarea = new Tarea();
+    private List<Tarea> tasks;
 
     public TasksBean() {
         context = FacesContext.getCurrentInstance();
         usuario = (Usuario) context.getExternalContext().getSessionMap().get( "usuario" );
+
     }
     
     public List<Tarea> getTasks() {
-        return tareaBean.getTareaFindOwn( usuario );
+        tasks = tareaBean.getTareaFindOwn( usuario ); 
+        return this.tasks;
     }
     
     public int getTasksSize(){
         return tareaBean.getTareaFindOwn(usuario).size();
         }
     
+    public String edit(Tarea tarea){
+        tareaBean.mergeTarea(tarea);
+        tasks = tareaBean.getTareaFindOwn( usuario ); 
+        setEdit(true);
+        return null;
+        }
+    
+    public String delete(Tarea tarea){
+        tasks.remove(tarea);
+        tareaBean.removeTarea(tarea);
+        setEdit(false);
+        return null;
+        }
+    
+    
     public String logout() {
         context.getExternalContext().invalidateSession();
         context.addMessage( null, new FacesMessage( FacesMessage.SEVERITY_INFO, "OK", "Ha sido desconectado." ) );
         
         return "EXIT";
+    }
+
+    public boolean isEdit() {
+        return edit;
+    }
+
+    public void setEdit(boolean edit) {
+        this.edit = edit;
     }
 }
