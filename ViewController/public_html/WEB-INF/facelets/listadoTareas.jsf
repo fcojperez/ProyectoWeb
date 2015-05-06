@@ -73,8 +73,9 @@
                 </div>
             </h:form>
             <h:panelGroup rendered="#{tasksBean.edit}">
-                <p>Id: <h:outputText styleClass="agenda-date" value="#{item.id}"  /></p>
-                <p><h:commandButton value="save" action="#{tasksBean.edit(item)}" /></p>
+                <p>Id: <h:outputText styleClass="agenda-date" value="#{tasksBean.tarea.id}"  /></p>
+                <p>Titulo: <h:inputText styleClass="agenda-date" value="#{tasksBean.tarea.titulo}"  /></p>
+                <p><h:commandButton value="save" action="#{tasksBean.save(item)}" /></p>
             </h:panelGroup>
         </h:body>
     </html>

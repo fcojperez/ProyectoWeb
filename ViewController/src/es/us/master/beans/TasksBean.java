@@ -41,9 +41,20 @@ public class TasksBean {
         }
     
     public String edit(Tarea tarea){
-        tareaBean.mergeTarea(tarea);
-        tasks = tareaBean.getTareaFindOwn( usuario ); 
+        //Tomamos la tarera que vamos a editar
+        setTarea(tarea);
+        //Analizar
+        //tareaBean.mergeTarea(tarea);
+        //tasks = tareaBean.getTareaFindOwn( usuario ); 
         setEdit(true);
+        return null;
+        }
+    public String save(Tarea tarea){
+        //Persistimo la tarea
+        tareaBean.mergeTarea(tarea);
+        setEdit(false);
+        //actualizamos la lista de tareas
+        tasks = tareaBean.getTareaFindOwn(usuario);
         return null;
         }
     
@@ -68,5 +79,13 @@ public class TasksBean {
 
     public void setEdit(boolean edit) {
         this.edit = edit;
+    }
+
+    public Tarea getTarea() {
+        return tarea;
+    }
+
+    public void setTarea(Tarea tarea) {
+        this.tarea = tarea;
     }
 }
