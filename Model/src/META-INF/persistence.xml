@@ -10,6 +10,7 @@
         <properties>
             <property name="eclipselink.target-server" value="WebLogic_10"/>
             <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/ETSIIDS"/>
+            <!--<property name="eclipselink.ddl-generation" value="create-tables"/>-->
         </properties>
     </persistence-unit>
 </persistence>
