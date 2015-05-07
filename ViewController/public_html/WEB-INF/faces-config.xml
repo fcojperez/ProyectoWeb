@@ -28,5 +28,25 @@
             <from-outcome>EXIT</from-outcome>
             <to-view-id>/index.jsf</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>save</from-outcome>
+            <to-view-id>/tasks.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/tasks.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>alta</from-outcome>
+            <to-view-id>/AltaTarea.jsf</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/AltaTarea.jsf</from-view-id>
+        <navigation-case>
+            <from-outcome>obtener_listado_tareas</from-outcome>
+            <to-view-id>/tasks.jsf</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

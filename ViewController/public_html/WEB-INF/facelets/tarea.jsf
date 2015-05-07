@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />		
+ 
+            <title>
+                <ui:insert name="titulo">Titulo</ui:insert>
+            </title>
+            <h:outputStylesheet library="css/" name="listatareas.css" />
+            <h:outputStylesheet library="bootstrap-3.3.4-dist/" name="css/bootstrap.css" />
+            <h:outputScript library="jquery/" name="jquery-1.11.2.js" />
+            <script type="text/javascript">
+                //For calendar
+                $(".datepicker").datepicker({
+                    inline: true,
+                    showWeek: true,
+                    firstDay: 1
+                });
+            
+            </script>
+        </h:head>
+        <h:body>
+            <h:form>
+              <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <fieldset>
+            
+                      <!-- Form Name Alta de Tarea -->
+                      <legend>Alta de Tarea</legend>
+            
+                      <!-- Text input Titulo-->
+                      <div class="form-group">
+                        <h:outputLabel styleClass="col-sm-2 control-label" value="Titulo:" for="titulo" />
+                        <div class="col-sm-10">
+                            <h:inputText styleClass="form-control" id="titulo" value="#{tasksBean.tarea.titulo}" title="Titulo" required="true" requiredMessage="Es necesario introducir el título de la tarea."/>
+                        </div>
+                      </div>
+            
+                      <!-- Text input Descripcion-->
+                      <div class="form-group">
+                        <h:outputLabel styleClass="col-sm-2 control-label" value="Descripción:" for="descripcion" />
+                        <div class="col-sm-10">
+                          <h:inputText styleClass="form-control" id="descripcion" value="#{tasksBean.tarea.descripcion}" title="Descripción" required="true" requiredMessage="Es necesario introducir la descripción de la tarea."/>
+                        </div>
+                      </div>
+            
+                      <!-- Text input Fecha Inicio-->
+                      <div class="form-group">
+                        <h:outputLabel styleClass="col-sm-2 control-label" value="Fecha Inicio:" for="fechaInicio" />
+                        <div class="col-sm-10">
+                          <h:inputText styleClass="datepicker" id="fechaInicio" value="#{tasksBean.tarea.fechaInicio}" title="Fecha Inicio" required="true" requiredMessage="Es necesario introducir la fecha de inicio de la tarea."/>
+                        </div>
+                      </div>
+            
+                      <!-- Text input Fecha Fin-->
+                      <div class="form-group">
+                        <h:outputLabel styleClass="col-sm-2 control-label" value="Fecha Fin:" for="fechaFin" />
+                        <div class="col-sm-10">
+                          <h:inputText styleClass="datepicker" id="fechaFin" value="#{tasksBean.tarea.fechaFin}" title="Fecha Inicio" />
+                        </div>
+                      </div>
+            
+          
+            
+                     <!--- Botones de Acciones -->
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <div class="pull-right">
+                            <h:commandButton styleClass="btn btn-primary" value="Guardar" action="#{tasksBean.altaTarea}" />
+                            <h:button styleClass="btn btn-default" value="Cancelar" outcome="obtener_listado_tareas" />
+                          </div>
+                        </div>
+                      </div>
+            
+                    </fieldset>
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+            </h:form>
+        </h:body>
+    </html>
+</f:view>

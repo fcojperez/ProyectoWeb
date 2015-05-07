@@ -47,7 +47,7 @@ public class TasksBean {
         //tareaBean.mergeTarea(tarea);
         //tasks = tareaBean.getTareaFindOwn( usuario ); 
         setEdit(true);
-        return null;
+        return "edit";
         }
     public String save(Tarea tarea){
         //Persistimo la tarea
@@ -55,7 +55,7 @@ public class TasksBean {
         setEdit(false);
         //actualizamos la lista de tareas
         tasks = tareaBean.getTareaFindOwn(usuario);
-        return null;
+        return "save";
         }
     
     public String delete(Tarea tarea){
@@ -88,4 +88,10 @@ public class TasksBean {
     public void setTarea(Tarea tarea) {
         this.tarea = tarea;
     }
+    
+    public String altaTarea(){
+        Tarea t = getTarea();
+        tareaBean.persistTarea(t);
+        return "obtener_listado_tareas";
+        }
 }

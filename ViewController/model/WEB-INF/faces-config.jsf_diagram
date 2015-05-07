@@ -1,15 +1,18 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <SDM>
    <OverallProperties
-      id="OverallProperties1"/>
+      id="OverallProperties1">
+      <property
+         name="linkStyle">Orthogonal</property>
+   </OverallProperties>
    <Page
       id="Page10">
       <property
          name="wildcard">false</property>
       <property
-         name="y">62.29883</property>
+         name="y">84.59766</property>
       <property
-         name="x">-120.0</property>
+         name="x">-262.0</property>
       <property
          name="jspName">/index.jsf</property>
    </Page>
@@ -18,9 +21,9 @@
       <property
          name="wildcard">false</property>
       <property
-         name="y">-65.05176</property>
+         name="y">-65.103516</property>
       <property
-         name="x">164.0</property>
+         name="x">114.0</property>
       <property
          name="jspName">/tasks.jsf</property>
    </Page>
@@ -34,7 +37,7 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">T57,-115.938675,1.7620888,121.2488,-69.46365,L45</property>
+         name="sdm:polyPoints">R44,119.35365,78.89343,B59</property>
    </NavigationCase>
    <NavigationCase
       islink="true"
@@ -46,16 +49,16 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">T30,-132.18396,7.737505,-124.061325,7.737505,T43</property>
+         name="sdm:polyPoints">T32,-272.7073,28.39343,-262.0,28.39343,T50</property>
    </NavigationCase>
    <Page
       id="Page21">
       <property
          name="wildcard">false</property>
       <property
-         name="y">90.94824</property>
+         name="y">284.1953</property>
       <property
-         name="x">190.0</property>
+         name="x">-163.0</property>
       <property
          name="jspName">/register.jsf</property>
    </Page>
@@ -69,7 +72,7 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">B50,190.0,145.15898,-120.0,116.86015,B50</property>
+         name="sdm:polyPoints">T68,-152.29268,89.600746,R56</property>
    </NavigationCase>
    <NavigationCase
       islink="true"
@@ -81,7 +84,7 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">T43,185.93867,36.03634,194.06133,36.03634,T57</property>
+         name="sdm:polyPoints">T32,-173.70732,227.99112,-163.0,227.99112,T50</property>
    </NavigationCase>
    <NavigationCase
       islink="true"
@@ -93,6 +96,65 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">L55,122.438675,-61.341015,-107.81604,7.737505,T70</property>
+         name="sdm:polyPoints">L50,-251.29268,-65.45409,T68</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase10"
+      from="Page15"
+      to="Page15">
+      <property
+         name="fromOutcome">save</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">T41,108.64634,-121.30775,119.35365,-121.30775,T59</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase11"
+      from="Page15"
+      to="Page15">
+      <property
+         name="fromOutcome">edit</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">B24,97.93902,-9.600428,108.64634,-9.600428,B41</property>
+   </NavigationCase>
+   <Page
+      id="Page12">
+      <property
+         name="wildcard">false</property>
+      <property
+         name="y">68.72949</property>
+      <property
+         name="x">702.0</property>
+      <property
+         name="jspName">/AltaTarea.jsf</property>
+   </Page>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase13"
+      from="Page15"
+      to="Page12">
+      <property
+         name="fromOutcome">alta</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">B76,130.06097,68.37893,L50</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase15"
+      from="Page12"
+      to="Page15">
+      <property
+         name="fromOutcome">obtener_listado_tareas</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">T50,702.0,-65.45409,R50</property>
    </NavigationCase>
 </SDM>
